@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import contacts from "./data/contacts";
+import Card from "./components/Card";
+import Avatar from "./components/Avatar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 className="heading">My Contacts</h1>
+      <Avatar  
+        img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_Mh_0LE_Y1cFrfUBnMXC7-2jjQ8cZLLpRAcF4vQwrCw&s"
+      />
+      <Card
+        name={contacts[0].name}
+        img={contacts[0].imgURL}
+        tel={contacts[0].phone}
+        email={contacts[0].email}
+      />
+      <Card
+        name={contacts[1].name}
+        img={contacts[1].imgURL}
+        tel={contacts[1].phone}
+        email={contacts[1].email}
+      />
+      <Card
+        name={contacts[2].name}
+        img={contacts[2].imgURL}
+        tel={contacts[2].phone}
+        email={contacts[2].email}
+      />
     </div>
   );
 }
