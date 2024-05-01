@@ -2,13 +2,34 @@ import contacts from "./data/contacts";
 import Card from "./components/Card";
 import Avatar from "./components/Avatar";
 
+
+function createCard(contact){
+  return (
+    <Card 
+        key={contact.id}
+        id={contact.id}
+        name={contact.name}
+        img={contact.imgURL}
+        tel={contact.phone}
+        email={contact.email}
+    />
+  )
+}
+
 function App() {
   return (
     <div>
       <h1 className="heading">My Contacts</h1>
       <Avatar  
-        img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_Mh_0LE_Y1cFrfUBnMXC7-2jjQ8cZLLpRAcF4vQwrCw&s"
-      />
+        img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_Mh_0LE_Y1cFrfUBnMXC7-2jjQ8cZLLpRAcF4vQwrCw&s"/>
+
+        {contacts.map(createCard)}
+
+
+
+    
+ 
+     {/*
       <Card
         name={contacts[0].name}
         img={contacts[0].imgURL}
@@ -26,7 +47,7 @@ function App() {
         img={contacts[2].imgURL}
         tel={contacts[2].phone}
         email={contacts[2].email}
-      />
+      /> */}
     </div>
   );
 }
