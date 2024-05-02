@@ -3,18 +3,7 @@ import Card from "./components/Card";
 import Avatar from "./components/Avatar";
 
 
-function createCard(contact){
-  return (
-    <Card 
-        key={contact.id}
-        id={contact.id}
-        name={contact.name}
-        img={contact.imgURL}
-        tel={contact.phone}
-        email={contact.email}
-    />
-  )
-}
+
 
 function App() {
   return (
@@ -23,7 +12,17 @@ function App() {
       <Avatar  
         img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_Mh_0LE_Y1cFrfUBnMXC7-2jjQ8cZLLpRAcF4vQwrCw&s"/>
 
-        {contacts.map(createCard)}
+        {contacts.map((contact) =>(
+           <Card 
+              key={contact.id}
+              id={contact.id}
+              name={contact.name}
+              img={contact.imgURL}
+              tel={contact.phone}
+              email={contact.email}
+          />
+      
+))}
 
 
 
