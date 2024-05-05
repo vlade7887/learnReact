@@ -11,7 +11,8 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-
+//Challenge: Without moving the userIsRegistered variable,
+//1. Show Login as the button text if userIsRegistered is true.
+//Show Register as the button text if userIsRegistered is false.
+//2. Only show the Confirm Password input if userIsRegistered is false.
+//Don't show it if userIsRegistered is true.
