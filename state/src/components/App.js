@@ -1,6 +1,8 @@
 
 // var isDone = true;
 
+import { useState } from "react";
+
 
 // function strike(){
 //  isDone = true;
@@ -23,24 +25,28 @@
 // export default App;
 
 
-function App() {
- const state = React.useState();
+function App(){
+const [count, setCount] = useState(0)
 
-  function increase(){
-    
-    count++;
-    
-  } 
-  
 
-  return (
-   <div className="container">
-      <h1>{count}</h1>
-      <button onClick={increase}>+</button>
-      
-    
-   </div>
-  );
+function increase(){
+  setCount(count + 1);
 }
+
+
+function decrease(){
+  setCount(count - 1);
+}
+return(
+<div className="container">
+  <h1>{count}</h1>
+  <button onClick={increase}>+</button>
+  <button onClick={decrease}>-</button>
+</div>
+
+)
+
+}
+
 
 export default App;
