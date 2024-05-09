@@ -7,20 +7,21 @@ const [headingText, setHeadingText] = useState("Hello")
 const colorBlack = "black";
 const colorWhite = {backgroundColor: "white"};
 
-const [black, setBlack] = useState("white");
+const [ismouseOver, setMouseOver] = useState(false);
 
   function handleClick(){
     setHeadingText("Submitted");
   }
   
 
-  function handleBlack(){
-    setBlack("black")
+  function handleMouseOver(){
+    setMouseOver(true);
+    console.log("yes")
   }
 
-  function handleWhite(){
-    setBlack("white")
-  }
+function handleMouseOut(){
+  setMouseOver(false);
+}
 
 
 
@@ -29,7 +30,12 @@ const [black, setBlack] = useState("white");
     <div className="container">
       <h1>{headingText}</h1>
       <input type="text" placeholder="What's your name?" />
-      <button style={{backgroundColor: black}} onClick={handleClick} onMouseOver={handleBlack} onMouseOut={handleWhite}>Submit</button>
+      <button style={{backgroundColor: ismouseOver ? "black" : "white"}} 
+      onClick={handleClick} 
+      onMouseOver={handleMouseOver}
+      onMouseOut={handleMouseOut}
+      >Submit</button>
+      
     </div>
   );
 }
