@@ -1,33 +1,34 @@
 import React, { useState } from "react";
 import TodoItem from "./ToDoItem";
 
-
 function App() {
- 
   const [inputText, setInputText] = useState("");
   const [items, setItems] = useState([]);
 
-
-  function handleChange(event){
+  function handleChange(event) {
     const newValue = event.target.value;
     setInputText(newValue);
   }
 
-  function addItem(){
-    setItems(prevValue =>{
-      return [...prevValue, inputText]
-    })
+  function addItem() {
+    setItems(prevItems => {
+      return [...prevItems, inputText];
+    });
     setInputText("");
+  }
+
+
+  function deleteItem(id){
+      setItems((prevItems)=>{
+      return prevItems.filter( (item, index) =>{
+        return index !== id;
+      } )
+      })
     
   }
 
-  function deleteItem(id){
-   setItems(prevItems=> {
-      return prevItems.filter( (item, index) =>{
-        return index !== id;
-      })    
-   } )
-  }
+
+  
   return (
     <div className="container">
       <div className="heading">
@@ -41,15 +42,14 @@ function App() {
       </div>
       <div>
         <ul>
-        {items.map((todoItem, index) => (
-        <TodoItem 
-          key={index}
-          id={index}
-          text = {todoItem}
-          onChecked={deleteItem}
-        /> 
-      ))}
-         
+          {items.map((todoItem, index) => (
+           <TodoItem 
+              key = {index}
+              id = {index}
+             text = {todoItem}
+             onChecked = {deleteItem}
+           />
+          ))}
         </ul>
       </div>
     </div>
